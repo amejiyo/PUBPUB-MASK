@@ -15,9 +15,9 @@ Things might be different from mine due to my lack of experience.
 - Language
 - Setting
 - Welcome
+- Home (HomeV2)
 
 # Things need to be done
-- Homepage (50%)
 - Speech to text (0%)
 - Translate (0%)
 - Record (0%)
