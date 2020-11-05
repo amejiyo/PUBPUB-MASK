@@ -9,7 +9,6 @@
 
 all file run through App.js. The rest is stored in android/screen.
 Things might be different from mine due to my lack of experience.
-----------------------------------------------------------------------
 
 # Things that complete
 - Language
