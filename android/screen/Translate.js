@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     },
     view:{
         backgroundColor:'#1A1B1C',
-        height: screenHeight*0.85,
+        height: screenHeight*0.8,
         top: 20,
         borderRadius: 40,
     },
