@@ -26,9 +26,10 @@ Things might be different from mine due to my lack of experience.
 - Notification
 - Helps
 
+<img src="/image/Welcome.jpg" alt="welcome">
 <img src="/image/Home_on.jpg" alt="homepage1">
 <img src="/image/Home_off.jpg" alt="homepage2">
 <img src="/image/Setting.jpg" alt="setting">
 <img src="/image/Language_lan.jpg" alt="language1">
 <img src="/image/Language_trans.jpg" alt="language2">
-<img src="/image/Translate.jpg" alt="translatee">
+<img src="/image/Translate.jpg" alt="translate">
