@@ -26,3 +26,5 @@ Things might be different from mine due to my lack of experience.
 - Notification
 - Helps
 
+<img src="/image/Home_on.jpg" alt="homepage">
+
