@@ -34,3 +34,9 @@ Things might be different from mine due to my lack of experience.
 <img src="/image/Language_lan.jpg" alt="language1">
 <img src="/image/Language_trans.jpg" alt="language2">
 <img src="/image/Translate.jpg" alt="translate">
+<img src="/image/record_off.jpg" alt="record_off">
+<img src="/image/Record_on.jpg" alt="record_on">
+<img src="/image/speech_off.jpg" alt="speech_off">
+<img src="/image/speech_on.jpg" alt="speech_on">
+<img src="/image/Alert.jpg" alt="alert">
+
