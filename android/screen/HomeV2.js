@@ -14,6 +14,7 @@ import {
 } from "react-native";
 const chooseColor = "#FFCC00";
 const buttonColor = "white";
+const buttonOpa = '#fff5cc';
 const screenHeight = Math.round(Dimensions.get('window').height);
 const screenWidht = Math.round(Dimensions.get('window').width);
 const fontColorOff = '#bababa';
@@ -22,6 +23,15 @@ const buttonWidht = 36*screenWidht/100;
 const buttonHeight = buttonWidht*7/8;
 
 export default ({ history }) => {
+  try{
+    raw = history.location.state.language["lan"]
+    raw1 = history.location.state.language["trans"]
+    }
+    catch (err) {
+        raw = 'English'
+        raw1 = 'Thai'}
+    const [lan, setLan] = useState({lan: raw, trans: raw1})
+console.log(raw,raw1);
   const backAction = () =>{
     BackHandler.exitApp();
   }
@@ -31,12 +41,18 @@ export default ({ history }) => {
     return () =>
       BackHandler.removeEventListener("hardwareBackPress", backAction);
   }, []);
-  const [opa, setOpa] = useState(0.8);
-  const [fontcolor2, setfontColor2] = useState(fontColorOff);
-    const onPress1 = () => {setOpa(opa == 0.8 ? 1 : 0.8), setfontColor2(fontcolor2 == fontColorOff? fontColorOn : fontColorOff)};
+  const [color, setColor] = useState({button:buttonOpa,font:fontColorOff});
+  const onPress1 = () => {if (color.font === fontColorOff){
+                            setColor({...color,button:buttonColor,font:fontColorOn})
+                          }
+                          else{
+                            setColor({...color,button:buttonOpa,font:fontColorOff})
+                          }
+                        };
+  
   return(
     <View style={styles.background1}>
-        <StatusBar backgroundColor="black" />
+        <StatusBar backgroundColor="black"/>
         <Text style={styles.text_PB}>
             PUP PUB {"\n"}
             <Text style={styles.text_M}>MASK</Text>
@@ -56,25 +72,26 @@ export default ({ history }) => {
           <Image source={require('../../assets/setting.png')} 
           style={{tintColor:'white', flex:0.5, resizeMode:'contain'}}/>
         </TouchableOpacity>
-        <View style={{flexDirection:'row', alignItems: 'center',justifyContent:'flex-start', top:'20%'}}>
+        <View style={{flexDirection:'row', alignItems: 'center',justifyContent:'flex-start',top:buttonHeight/3+(screenHeight*0.08)}}>
             <Image source={require('../../assets/Grey.png')} style={styles.image}/>
-            <Text style={styles.normalText}>Connectd {"\n"}
-                <Text style={{color:'#bababa'}}>PB_M:00.00.1 {"\n"}</Text>
-                100% 
-            </Text>
-            <View style={{backgroundColor:'green',top:'7.5%',height:18,width:30,left:'-15%',alignItems:'center',borderWidth:6,justifyContent:'center'}}>
-            <Image source={require('../../assets/empty-battery.png')} style={{tintColor:'white', resizeMode: 'contain',height:20}}/></View>
+            <View style={{alignItems:'flex-end',flexDirection:'row',padding:0}}>
+              <Text style={styles.normalText}>Connected {"\n"}
+                  <Text style={{color:'#bababa'}}>PB_M:00.00.1 {"\n"}</Text>
+                  100% 
+              </Text>
+              <View style={{backgroundColor:'green',position: 'relative',top:'-3%',height:18,width:26,left:'-15%',alignItems:'center',borderWidth:5,justifyContent:'center'}}>
+              <Image source={require('../../assets/empty-battery.png')} style={{tintColor:'white', resizeMode: 'contain',height:20}}/></View>
+          </View>
         </View>
         <View style={styles.background2}>
-            <TouchableHighlight
+            <TouchableOpacity
                 style={{
                     borderRadius: 20,
                     width: screenWidht*0.87,
                     height: buttonHeight*0.7,
-                    opacity: opa,
                     position: "absolute",
                     top: '5%',
-                    backgroundColor: buttonColor,
+                    backgroundColor: color.button,
                     shadowColor: "#000",
                     shadowOffset: {
                         width: 0,
@@ -82,7 +99,6 @@ export default ({ history }) => {
                     },
                     shadowOpacity: 0.25,
                     shadowRadius: 3.84,
-
                     elevation: 5,
                 }} onPress={onPress1}>
                 <View style={{
@@ -91,23 +107,24 @@ export default ({ history }) => {
                     alignItems: 'center',
                     flexDirection:'row',
                     justifyContent:'flex-start'}}>
-                    <Image source={require('../../assets/speaker.png')} 
+                    <Image source={color.font===fontColorOff? require('../../assets/mute.png'):require('../../assets/speaker.png')} 
                         style={{
-                        flex:0.21,
+                        flex:0.17,
                         resizeMode: 'contain', 
-                        tintColor: fontcolor2,
+                        tintColor: color.font,
                         left:'25%'
                         }}>
                     </Image>
                     <Text style={{
                     fontFamily: "Inter_700Bold",
                     fontSize: 14,
-                    color: fontcolor2,
-                    left: '35%'
+                    color: color.font,
+                    position:'absolute',
+                    left: '28%'
                     }}>Speaker</Text>
                 </View>
-            </TouchableHighlight>
-            <TouchableHighlight
+            </TouchableOpacity>
+            <TouchableOpacity
                 style={{
                     borderRadius: 20,
                     width: screenWidht*0.87,
@@ -123,9 +140,9 @@ export default ({ history }) => {
                     },
                     shadowOpacity: 0.25,
                     shadowRadius: 3.84,
-
                     elevation: 5,
-                }} onPress={()=>{history.push('/translate')}}>
+                    activeOpacity: 0.5,
+                }} onPress={()=>{history.push('/Translate',{language:lan})}}>
                 <View style={{
                     width: screenWidht*0.8,
                     height: buttonHeight*0.7,
@@ -134,21 +151,22 @@ export default ({ history }) => {
                     justifyContent:'flex-start'}}>
                     <Image source={require('../../assets/translate.png')} 
                         style={{
-                        flex:0.3,
+                        flex:0.2,
                         resizeMode: 'contain', 
                         tintColor: 'black',
-                        left:'25%'
+                        left:'20%'
                         }}>
                     </Image>
                     <Text style={{
                     fontFamily: "Inter_700Bold",
                     fontSize: 14,
                     color: 'black',
-                    left: '35%'
+                    position:'absolute',
+                    left: '28%'
                     }}>Real-time Translator</Text>
                 </View>
-            </TouchableHighlight>
-            <TouchableHighlight
+            </TouchableOpacity>
+            <TouchableOpacity
                 style={{
                     borderRadius: 20,
                     width: screenWidht*0.87,
@@ -166,34 +184,36 @@ export default ({ history }) => {
                     shadowRadius: 3.84,
 
                     elevation: 5,
-                }} onPress={()=>history.push('/speechToText')}>
+                }} onPress={()=>history.push('/Recorder')}>
                 <View style={{
                     width: screenWidht*0.8,
                     height: buttonHeight*0.7,
                     alignItems: 'center',
                     flexDirection:'row',
                     justifyContent:'flex-start'}}>
-                    <Image source={require('../../assets/speaker.png')} 
+                    <Image source={require('../../assets/mic.png')} 
                         style={{
-                        flex:0.21,
+                        flex:0.16,
                         resizeMode: 'contain', 
                         tintColor:'black',
-                        left:'25%'
+                        left:'27%'
                         }}>
                     </Image>
                     <Text style={{
                     fontFamily: "Inter_700Bold",
                     fontSize: 14,
                     color: 'black',
-                    left: '35%'
-                    }}>Voice Recorder, Speech to Text</Text>
+                    position:'absolute',
+                    left: '28%'
+                    }}>Voice Recorder</Text>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
             <Text style={{
                     fontFamily: "Inter_700Bold",
                     fontSize: 8,
                     color: 'grey',
-                    bottom: -0.45*screenHeight
+                    position:'absolute',
+                    bottom: 80,
                     }}>FRA261 PROJECT Presented by @PUPPUB Company</Text>       
         </View>
     </View>
@@ -208,7 +228,7 @@ const styles = StyleSheet.create({
     background2: {
         backgroundColor: chooseColor,
         flex: 0.75,
-        height: 0.7*screenHeight,
+        height: 0.71*screenHeight,
         width:screenWidht,
         borderRadius: 40,
         position: 'absolute',
@@ -217,8 +237,8 @@ const styles = StyleSheet.create({
       },
     text_PB: {
       fontFamily: "Inter_700Bold",
-      fontSize: 12,
-      lineHeight: 18,
+      fontSize: 20,
+      lineHeight: 27,
       color: chooseColor,
       position: "absolute",
       top: '2%',
@@ -226,8 +246,8 @@ const styles = StyleSheet.create({
     },
     text_M: {
       fontFamily: "Inter_900Black",
-      fontSize: 20,
-      letterSpacing: 0,
+      fontSize: 30,
+      letterSpacing: 1,
       color: "white",
     },
     image:{
