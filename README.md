@@ -15,12 +15,13 @@ Things might be different from mine due to my lack of experience.
 - Setting
 - Welcome
 - Home (HomeV2)
+- Speech to text (100%)
+- Translate (100%)
+- Record (100%)
 
 # Things need to be done
-- Speech to text (0%)
-- Translate (0%)
-- Record (0%)
 - About page (0%) ==> where our name will be placed
+- List (0%)
 
 # Options
 - Notification
