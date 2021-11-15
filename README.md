@@ -4,8 +4,7 @@
 1.  react-native
 2.  react router
 3.  node
-4.  java
-5.  android studio
+4.  android studio
 
 all file run through App.js. The rest is stored in android/screen.
 Things might be different from mine due to my lack of experience.
