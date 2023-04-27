@@ -9,8 +9,9 @@ a mockup mobile application for smart mask visualizing the ideal ability of our 
 3. Translator
 4. Recorder
 
-
-<img src="/image/Welcome.jpg" alt="welcome"> <img src="/image/Home_on.jpg" alt="homepage1"> <img src="/image/Home_off.jpg" alt="homepage2">
+<p float="left">
+  <img src="/image/Welcome.jpg" alt="welcome"> <img src="/image/Home_on.jpg" alt="homepage1"> <img src="/image/Home_off.jpg" alt="homepage2">
+</p>
 <img src="/image/Setting.jpg" alt="setting">
 <img src="/image/Language_lan.jpg" alt="language1"> <img src="/image/Language_trans.jpg" alt="language2"> <img src="/image/Translate.jpg" alt="translate">
 <img src="/image/record_off.jpg" alt="record_off"> <img src="/image/Record_on.jpg" alt="record_on">
