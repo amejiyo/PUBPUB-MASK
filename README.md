@@ -1,6 +1,8 @@
 # PUBPUB-MASK
 a mockup mobile application for smart mask visualizing the ideal ability of our prototype mask:
 
+
+
 Due to the covid 19 situation, people must wear the mask all time in public places. One of the most annoying problems we have found is in communication part, such as the lower outcoming voice, etc. Most of them are the problem of using the voice to communicate to both smart gadgets and people. To solve that, we come up with the idea of PUPPUP MASK, a smart mask to help your communication by having these following features.
 1. Phone Speaker
 2. Speach to Text
