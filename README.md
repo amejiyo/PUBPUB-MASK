@@ -10,7 +10,9 @@ a mockup mobile application for smart mask visualizing the ideal ability of our 
 4. Recorder
 
 <p float="left">
-  <img src="/image/Welcome.jpg" alt="welcome"> <img src="/image/Home_on.jpg" alt="homepage1"> <img src="/image/Home_off.jpg" alt="homepage2">
+  <img src="/image/Welcome.jpg" alt="welcome", width=100> 
+  <img src="/image/Home_on.jpg" alt="homepage1", width=100>
+  <img src="/image/Home_off.jpg" alt="homepage2", width=100>
 </p>
 <img src="/image/Setting.jpg" alt="setting">
 <img src="/image/Language_lan.jpg" alt="language1"> <img src="/image/Language_trans.jpg" alt="language2"> <img src="/image/Translate.jpg" alt="translate">
